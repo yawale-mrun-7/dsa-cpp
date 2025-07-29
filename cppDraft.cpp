@@ -1,14 +1,23 @@
 #include<iostream>
 using namespace std;
-int main() {
-    int arr[5]={9, 5, 12, 3, 13};
-    int n=sizeof(arr)/sizeof(int);
-    int max=arr[0];
-    for(int i=0; i<n; i++) {
-        if(arr[i]>max) {
-            max=arr[i];
+void max_subarray(int *arr, int n) {
+
+    for(int start=0; start<n; start++) {  //start of coloumn
+        for(int end=start; end<n; end++) {  //start of row
+            int sum=0; //sum must be initialised before a new subarray starts
+            cout<<" { ";  //start of subarray
+            for(int i=start; i<=end; i++) {
+                sum+=arr[i];
+                
+            } //end of subarray
+            cout<<sum<<" } ";
         }
+        cout<<endl;
     }
-    cout<<max<<endl;
+}
+int main() {
+    int arr[]={2, -3, 6, -5, 4, 2};
+    int n=sizeof(arr)/sizeof(int);
+    max_subarray(arr, n);
     return 0;
 }
